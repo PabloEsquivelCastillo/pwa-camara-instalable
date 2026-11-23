@@ -1,0 +1,143 @@
+:root {
+  color-scheme: light;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #17181a;
+  background: #f5f5f7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --surface: #ffffff;
+  --muted: #747780;
+  --accent: #007aff;
+  --line: #e5e5ea;
+}
+
+* { box-sizing: border-box; }
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+button { font: inherit; -webkit-tap-highlight-color: transparent; }
+[hidden] { display: none !important; }
+.app-shell {
+  width: min(100% - 36px, 560px);
+  margin: 0 auto;
+  padding: max(30px, env(safe-area-inset-top)) 0 max(28px, env(safe-area-inset-bottom));
+}
+.page-header { margin: 0 0 27px; }
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 650;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+h1, h2, h3, p { margin-top: 0; }
+h1 {
+  margin-bottom: 8px;
+  font-size: clamp(2.1rem, 8vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -.055em;
+  line-height: 1.04;
+}
+h2 { margin-bottom: 0; font-size: 1.08rem; font-weight: 650; letter-spacing: -.02em; }
+h3 { margin-bottom: 8px; font-size: 1rem; }
+.intro, footer { color: var(--muted); }
+.intro { margin-bottom: 0; font-size: .98rem; line-height: 1.45; }
+.camera-card {
+  padding: 18px;
+  border: 1px solid rgba(0, 0, 0, .035);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: 0 8px 30px rgba(20, 25, 35, .045);
+}
+.notice {
+  margin: 0 0 14px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: var(--surface);
+  color: #33343a;
+  font-size: .94rem;
+  line-height: 1.5;
+}
+.notice p:last-child { margin-bottom: 0; }
+.notice-ios { border-color: #d8e9ff; background: #f0f7ff; }
+.notice-ios h2 { margin-bottom: 8px; }
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 1px 1px 15px;
+}
+.section-heading .eyebrow { margin-bottom: 4px; }
+.status {
+  flex: 0 0 auto;
+  max-width: 52%;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f2f2f7;
+  color: #62636a;
+  font-size: .75rem;
+  font-weight: 550;
+  line-height: 1.3;
+  text-align: center;
+}
+.video-frame {
+  position: relative;
+  display: grid;
+  min-height: 220px;
+  overflow: hidden;
+  place-items: center;
+  border-radius: 16px;
+  background: #111216;
+  aspect-ratio: 4 / 3;
+}
+video { display: block; width: 100%; height: 100%; max-height: 62vh; object-fit: cover; }
+.video-placeholder {
+  position: absolute;
+  width: min(82%, 300px);
+  margin: 0;
+  color: #c4c5cb;
+  font-size: .9rem;
+  line-height: 1.45;
+  text-align: center;
+}
+.controls { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 14px; }
+.button {
+  min-height: 46px;
+  padding: 11px 14px;
+  border: 0;
+  border-radius: 13px;
+  font-size: .92rem;
+  font-weight: 620;
+  cursor: pointer;
+  transition: background-color .15s ease, opacity .15s ease, transform .15s ease;
+}
+.button:active:not(:disabled) { transform: scale(.985); }
+.button:focus-visible { outline: 3px solid #80bdff; outline-offset: 2px; }
+.button:disabled { cursor: default; opacity: .42; }
+.button-primary { color: #fff; background: var(--accent); }
+.button-primary:active:not(:disabled) { background: #0067d8; }
+.button-secondary { color: #222329; background: #f0f0f5; }
+.button-danger { color: #d12f36; background: #fff0f0; }
+.controls .button:first-child { grid-column: 1 / -1; }
+.consent-notice { margin: 14px 0 0; border-color: #d8e9ff; background: #f7fbff; }
+.consent-notice .button { width: 100%; margin-top: 5px; }
+#btn-instalar { width: 100%; margin: 0 0 14px; }
+footer { padding: 15px 3px 0; font-size: .82rem; line-height: 1.5; }
+
+@media (max-width: 420px) {
+  .app-shell { width: min(100% - 28px, 560px); }
+  .camera-card { padding: 14px; border-radius: 19px; }
+  .section-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .status { max-width: 100%; text-align: left; }
+  .video-frame { min-height: 200px; border-radius: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
